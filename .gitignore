@@ -1,3 +1,6 @@
+## Files produced by latex package "nomenclature"
+*.nls
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
