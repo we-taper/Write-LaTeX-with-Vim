@@ -1,4 +1,4 @@
-# Write-LaTeX-wit-Vim
+# Write-LaTeX-with-Vim
 Speed up your LaTeX speed with Vim.
 
 # License
