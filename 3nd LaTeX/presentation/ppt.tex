@@ -1,0 +1,280 @@
+\documentclass{beamer}
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  % or ...
+
+  %\setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+
+\usepackage[english]{babel}
+% or whatever
+
+\usepackage[latin1]{inputenc}
+% or whatever
+
+\usepackage{times}
+\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily}
+\title[How to start \LaTeX ing] % (optional, use only with long paper titles)
+{How to start \LaTeX ing}
+
+\subtitle
+{In my opinion...} % (optional)
+
+\author[taper] % (optional, use only with lots of authors)
+{we.taper\inst{1}}
+
+\institute[Universities of Somewhere and Elsewhere] % (optional, but mostly needed)
+{
+  \inst{1}%
+  Physics, SUSTech
+}
+
+\subject{Talks}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+
+\pgfdeclareimage[height=3cm]{university-logo}{sustech-logo.png}
+\logo{\pgfuseimage{university-logo}}
+
+
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+\section{Start with Examples}
+
+%\subsection[Basic Structure]{Basic Structure of \LaTeX}
+\begin{frame}[fragile]{Basic Structure of \LaTeX}
+    \begin{minipage}[c]{0.6\textwidth}
+    \begin{itemize}
+    \item 
+    Basic structure of a \LaTeX file looks like this $ \Longrightarrow$
+    \item Comment starts with \%
+    \item Preamble: puts everything that one do not expect to be seen on a
+        document. (Compare: \texttt{import} in Python, Java.)
+    \item 
+    Packages and Classes. 
+    \begin{itemize}
+        \item Packages = tools to create symbols. 
+        \item Classes = Templates in Word, Structure of the document.
+    \end{itemize}
+    \end{itemize}
+    \end{minipage}
+    \begin{minipage}[b]{0.3\textwidth}
+    \begin{lstlisting}[language=tex]
+\documentclass{...}
+% Preamble
+\begin{document}
+...
+\end{document}
+    \end{lstlisting}
+    \end{minipage} 
+\end{frame}
+
+%\subsection[Beamer Class]{First Example: Beamer}
+
+\begin{frame}{Beamer}
+  % - A title should summarize the slide in an understandable fashion
+  %   for anyone how does not follow everything on the slide itself.
+
+  \begin{itemize}
+  \item
+      Available online:
+      \href{https://github.com/josephwright/beamer}{\beamergotobutton{Github
+      Beamer}}
+      \pause
+  \item Open and Compile
+      \pause
+  \item Read the comments and modifies.
+  \item Again and again.
+  \end{itemize}
+\end{frame}
+
+\section{Programming Jargon}
+
+%\subsection{Compile Procedure}
+\begin{frame}[fragile]{Compile Procedure}
+    \begin{itemize}
+        \item C:
+        \begin{itemize}
+            \item Code (*.h) $\to$ linking (*.o) $\to$ Program (*.exe)
+        \end{itemize}
+        \item \LaTeX
+        \begin{itemize}
+            \item Code (*.tex) $\to$ Auxiliary file $\to$ PDF (*.pdf)
+            \item Compiler: \LaTeX, Xe\LaTeX, Lua\LaTeX.
+        \end{itemize}
+        \pause
+        \item Understanding \textbf{PATH}
+        \begin{itemize}
+            \item Relative v.s. Absolute path
+            \item \texttt{PATH} variable
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+%\subsection{Read Commands}
+\begin{frame}[fragile]{Read Commands}
+    \begin{itemize}
+        \item Understand Meanings:
+            \begin{lstlisting}[language=tex]
+                \textbackslash \phantom
+            \end{lstlisting}
+        \pause
+        \item Guess Abbreviations
+        \begin{itemize}
+            \item Msg
+            \item Ctrl, Prt, Bf, Err\dots
+            \item \textbackslash vskip, \textbackslash vphantom.
+            \item Bib (bibliography)
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+%\subsection{Err Msg}
+\begin{frame}{Err Msg}
+    \begin{enumerate}
+        \item Always Write \& Compile \& Check
+        \item Line number is important information, but is occasionally useless.
+        \item First Error is the most relevant one.
+        \item Undefined Control Sequence
+            \pause
+        \item Err msg is sometimes unreliable, READ your code!
+        \item Produce \textbf{Minimal Working File} with Commenting! 
+            \begin{itemize}
+            \item Ctrl+T on TeX Studio
+            \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+%\subsection{Indent, Spaces and Reserved Keywords}
+\begin{frame}{Indent, Spaces and Reserved Keywords}
+    \begin{itemize}
+        \item<1-> Good indentation means, everything\dots ,IMO.
+        \begin{itemize}
+            \item Structure: begin, end.
+            \item Align curly-braces.
+        \end{itemize}
+        \item<2-> \textbf{SPACES \& CHANGE LINE}!
+            \begin{itemize}
+                \item \LaTeX{} treat spaces as would any Programming language
+                    do:
+
+                    Ignores multiples of them.
+                \item Read line number and hit \beamergotobutton{Enter}
+                    whenever convenient.
+                \item Good line number + good spaces = fewer bugs
+            \end{itemize}
+        \item<3-> Reserved Keywords:
+            \begin{itemize}
+                \item Everything starts with \textbackslash
+                \item \textbackslash\textbackslash, \&, Non-ASCII
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Programmer Tools}
+    \begin{itemize}
+        \item<1-> IDE: TeX Studio, Vim.
+        \begin{itemize}
+        \item<2-> \textbf{Snippets}: TeX Studio, Vim, AutoHotkey, etc.
+        \end{itemize}
+        \item<1-> Source Code Management: Git
+        \item<1-> Online Editor: ShareLatex and Overleaf.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\LaTeX{} Sucks}
+    \begin{itemize}
+        \item Bad Programmer writing \LaTeX{} codes.
+        \item Everything expects an argument: 
+
+            \LaTeX s 
+            \begin{lstlisting}[language=tex]
+                \LaTeX s
+            \end{lstlisting}
+            is different from
+
+            \LaTeX{} s.
+            \begin{lstlisting}[language=tex]
+                \LaTeX{} s
+            \end{lstlisting}
+        \item Compile it \textbf{AGAIN}, esp. containing bibliography files.
+        \item Horrible Auxiliary files: delete them when there is no Minimal
+            working file.
+    \end{itemize}
+\end{frame}
+
+\section{Getting Resources}
+\begin{frame}{Getting Resources}
+    \begin{itemize}
+        \item Google is always your best choice.
+            \begin{itemize}
+                \item And information on WikiBooks, StackExchange \& ShareLatex
+                    are excellent.
+            \end{itemize}
+            \begin{itemize}
+                \item E.g.: "Quotation mark" in \LaTeX.
+            \end{itemize}
+        \item \texttt{CTAN}: Comprehensive \TeX{} Archive Network, containing
+            almost all possible packages.
+            \begin{itemize}
+                \item E.g.: Physics Packages
+            \end{itemize}
+        \item GitHub: modern codes online
+            \begin{itemize}
+                \item E.g.: Beamer on GitHub.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\section{End}
+\begin{frame}{The End}
+    \begin{center}
+    What do u have in mind?
+    \end{center}
+\end{frame}
+\end{document}
+
+
